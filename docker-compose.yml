@@ -1,0 +1,23 @@
+# /**
+#  *
+#  * @author  Abhishek Mane <maneabhi@in.ibm.com>
+#  * @version 1.0, 04/03/2018
+#  *
+#  */
+
+version: "2.3"
+
+services:
+  qbittorrent:
+    container_name: qbittorrent
+    image: wernight/qbittorrent
+    user: $UID:$GID
+    volumes:
+      - ./downloads:/downloads
+      - ./config:/config
+    expose:
+      - "8080"
+      - "6881/tcp"
+      - "6881/udp"
+    ports:
+      - "8080:8080"
